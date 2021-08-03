@@ -123,6 +123,15 @@ _app.component.html_
 </ul>
 ```
 
+### Directives
+
+The different types of Angular directives are as follows:
+
+- Components—directives with a template. This type of directive is the most common directive type (@Component).
+- Attribute directives—directives that change the appearance or behavior of an element, component, or another directive (@Directive).
+- Structural directives—directives that change the DOM layout by adding and removing DOM elements (ex: ngIf, ngFor...).
+
 ## Ressources
 
 - [Ressources de la formation](https://www.alexandria-library.co/ressources-angular/)
+- [Built-in directives](https://angular.io/guide/built-in-directives)

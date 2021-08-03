@@ -1,8 +1,8 @@
-<h1 class='center'>Pokémons</h1>
+<h1 class='center'>{{ title }}</h1>
 <div class='container'>
   <div class="row">
     <div *ngFor='let pokemon of pokemons' class="col s6 m4">
-      <div class="card horizontal" (click)="selectPokemon(pokemon)">
+      <div class="card horizontal" (click)="selectPokemon(pokemon)" appPkmnBorderCard="red">
         <div class="card-image">
           <img [src]="pokemon.picture">
         </div>
