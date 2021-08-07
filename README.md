@@ -8,9 +8,28 @@ _July 2021_
 
 ## Notes
 
-### Manage var in template
+### Components
 
-#### keyup
+#### Life cycle (\_fr)
+
+Chaque composant a un cycle de vie géré par Angular lui-même. Angular crée le composant, s'occupe de l'afficher, crée et affiche ses composants fils, vérifie quand les données des propriétés changent, et détruit les composants, avant de les retirer du DOM quand cela est nécessaire. Pratique, non ?
+
+Angular nous offre la possibilité d'agir sur ces moments clefs quand ils se produisent, en implémentant une ou plusieurs interfaces, pour chacun des événements disponibles. Ces interfaces sont disponibles dans la librairie core d'Angular.
+
+Chaque interface permettant d'interagir sur le cycle de vie d'un composant fournit une et une seule méthode, dont le nom est le nom de l'interface préfixé par ng. Par exemple, l'interface OnInit fournit la méthode ngOnInit, et permet de définir un comportement lorsque le composant est initialisé.
+
+**In short** (\_fr)
+
+- Un composant fonctionne en associant la logique d'une classe TypeScript avec un template HTML.
+- On utilise l'annotation @Component pour indiquer à Angular qu'une classe est un composant.
+- On peut initialiser une propriété avec une valeur simple directement lors de sa déclaration ou dans le constructeur d'un composant.
+- Des méthodes nous permettent d'interagir avec le cycle de vie d'un composant. Ces méthodes sont toutes préfixées par ng.
+- La méthode ngOnInit permet de définir un comportement spécifique lors de l'initialisation d'un composant.
+- Les méthodes de cycle de vie d'un composant que nous utiliserons le plus sont ngOnInit et ngOnDestroy.
+
+### Templates
+
+#### keyup (manage var in template)
 
 **Case 1**
 
@@ -123,6 +142,18 @@ _app.component.html_
 </ul>
 ```
 
+**In short** (\_fr)
+
+- L'interpolation permet d'afficher les propriétés de nos composants dans les templates, via la syntaxe {‌{ }}.
+- On peut lier une propriété d'élément, d'attribut, de classe ou de style d'un composant vers le template.
+- Si nos templates sont trop long, on peut utiliser le backtick d'ES6, ou définir nos templates dans des fichiers séparés.
+- La directive NgIf permet de conditionner l'affichage d'un template.
+- La directive NgFor permet d'afficher une propriété de type tableau dans un template.
+- On peut gérer les interactions d'un utilisateur avec un élément de la page grâce à la syntaxe : '(' + 'nom de l'événement' + ')'.
+- On peut référencer des variables directement dans le template plutôt que de manipuler l'objet $event.
+- Les variables référencées dans le template sont accessibles pour tous les éléments fils et frères de l'élément dans lequel elle ont été - déclarées.
+- Essayez d'éviter de mettre la logique de votre application dans vos templates. Gardez-les le plus simple possible !
+
 ### Directives
 
 The different types of Angular directives are as follows:
@@ -130,6 +161,39 @@ The different types of Angular directives are as follows:
 - Components—directives with a template. This type of directive is the most common directive type (@Component).
 - Attribute directives—directives that change the appearance or behavior of an element, component, or another directive (@Directive).
 - Structural directives—directives that change the DOM layout by adding and removing DOM elements (ex: ngIf, ngFor...).
+
+**In short** (\_fr)
+
+- On utilise l'annotation @Directive pour déclarer une directive dans notre application.
+- Il existe trois types de directives différentes : les composants, les directives d'attributs et les directives structurelles (ngFor et ngIf - par exemple).
+- Une directive d'attribut permet d'agir avec les éléments HTML d'une page, en leur attachant un comportement spécifique.
+- Une directive utilise un sélecteur CSS pour cibler les éléments HTML sur lesquels elle s’applique.
+- Il est recommandé de préfixer le nom de ses directives pour éviter les problèmes de collisions.
+- Angular crée une nouvelle instance de notre directive à chaque fois qu'il détecte un élément HTML avec l'attribut correspondant. Il injecte - alors dans le constructeur de la directive l'élément du DOM ElementRef.
+- Il faut déclarer notre directive pour pouvoir l’utiliser.
+- On utilise l'annotation @HostListener pour gérer les interactions de l'utilisateur au sein d'une directive.
+
+### Pipes
+
+**In short** (\_fr)
+
+- Les pipes permettent de formater les données affichées dans nos templates.
+- L'opérateur des pipes est « | ».
+- Angular fournit des pipes prêts à l'emploi, disponibles dans tous les templates de notre application : DatePipe, UpperCasePipe, - LowerCasePipe, etc.
+- Les pipes peuvent avoir des paramètres, mais tous les paramètres sont facultatifs.
+- On peut créer des pipes personnalisés pour les besoins de notre application avec l'annotation @Pipe.
+- Les pipes personnalisés doivent être déclarés avant de pouvoir être utilisés dans les templates de composants.
+
+### Routes
+
+**In short** (\_fr)
+
+- Angular simule la navigation de l'utilisateur auprès du navigateur, sans que nous n'ayons rien à faire.
+- On construit un système de navigation en associant une url et un composant dans un fichier à part.
+- Le système de routes d'Angular interprète les routes qui sont déclarées du haut vers le bas.
+- La balise <router-outlet> permet de définir où le template des composants fils sera injecté. Cette balise est disponible dans tous les - templates des composants du module racine.
+- L'opérateur permettant d'intercepter toutes les routes est \*\*.
+- Les routes doivent être regroupées par fonctionnalité au sein de modules.
 
 ## Ressources
 
