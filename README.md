@@ -175,6 +175,8 @@ The different types of Angular directives are as follows:
 
 ### Pipes
 
+Use pipes to transform strings, currency amounts, dates, and other data for display. Pipes are simple functions to use in template expressions to accept an input value and return a transformed value. Pipes are useful because you can use them throughout your application, while only declaring each pipe once.
+
 **In short** (\_fr)
 
 - Les pipes permettent de formater les données affichées dans nos templates.
@@ -185,6 +187,8 @@ The different types of Angular directives are as follows:
 - Les pipes personnalisés doivent être déclarés avant de pouvoir être utilisés dans les templates de composants.
 
 ### Routes
+
+Routing in Angular helps us navigate from one view to another as users perform tasks in web apps.
 
 **In short** (\_fr)
 
@@ -197,6 +201,12 @@ The different types of Angular directives are as follows:
 
 ### Modules
 
+Angular applications are modular and Angular has its own modularity system called NgModules. NgModules are containers for a cohesive block of code dedicated to an application domain, a workflow, or a closely related set of capabilities. They can contain components, service providers, and other code files whose scope is defined by the containing NgModule. They can import functionality that is exported from other NgModules, and export selected functionality for use by other NgModules.
+
+Every Angular application has at least one NgModule class, the root module, which is conventionally named AppModule and resides in a file named app.module.ts. You launch your application by bootstrapping the root NgModule.
+
+While a small application might have only one NgModule, most applications have many more feature modules. The root NgModule for an application is so named because it can include child NgModules in a hierarchy of any depth.
+
 **In short** (\_fr)
 
 - Il existe deux types de modules : le module racine et les modules de fonctionnalité, appelés également sous-modules.
@@ -204,6 +214,32 @@ The different types of Angular directives are as follows:
 - On peut créer des applications complexes en ajoutant des modules de fonctionnalité au module racine.
 - Chaque module regroupe tous les composants, directives, pipes, services, ... liés au développement d'une fonctionnalité donnée, dans un - dossier à part.
 - Chaque module peut disposer de ses propres routes également.
+
+### Services and Dependancies injections (DI)
+
+**Service** is a piece of reusable code with a focused purpose. A code that you will use in many components across your application
+
+Our components need to access the data. You can write data access code in each component, but that is very inefficient and breaks the rule of single responsibility. The Component must focus on presenting data to the user. The task of getting data from the back-end server must be delegated to some other class. We call such a class a Service class. Because it provides the service of providing data to every component that needs it.
+
+- Features that are independent of components such a logging services
+- Share logic or data across components
+- Encapsulate external interactions like data access
+
+**Dependencies** are services or objects that a class needs to perform its function. Dependency injection, or DI, is a design pattern in which a class requests dependencies from external sources rather than creating them.
+
+Angular's DI framework provides dependencies to a class upon instantiation. You can use Angular DI to increase flexibility and modularity in your applications.
+
+A **provider** is an instruction to the Dependency Injection system on how to obtain a value for a dependency. Most of the time, these dependencies are services that you create and provide.
+
+**In short** (\_fr)
+
+- Il faut ajouter l'annotation @Injectable sur tous nos services.
+- Un service permet de factoriser et de centraliser du code qui peut être utile ailleurs dans l'application.
+- On utilise l'injection de dépendances pour rendre un service disponible dans un composant.
+- On ne gère jamais nous-mêmes les dépendances sur un composant ou un service, on passe toujours par l'injection de dépendances.
+- L'injection de dépendance permet de garantir que l'instance de notre service est unique à travers toute l'application.
+- On définit un fournisseur de service pour déterminer dans quelles zones de notre application notre service sera disponible.
+- On peut fournir un service pour toute l'application, pour un module particulier ou pour un composant.
 
 ## Ressources
 
