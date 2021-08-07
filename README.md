@@ -195,6 +195,16 @@ The different types of Angular directives are as follows:
 - L'opérateur permettant d'intercepter toutes les routes est \*\*.
 - Les routes doivent être regroupées par fonctionnalité au sein de modules.
 
+### Modules
+
+**In short** (\_fr)
+
+- Il existe deux types de modules : le module racine et les modules de fonctionnalité, appelés également sous-modules.
+- On déclare un module avec l'annotation @NgModule, quel que soit le type du module.
+- On peut créer des applications complexes en ajoutant des modules de fonctionnalité au module racine.
+- Chaque module regroupe tous les composants, directives, pipes, services, ... liés au développement d'une fonctionnalité donnée, dans un - dossier à part.
+- Chaque module peut disposer de ses propres routes également.
+
 ## Ressources
 
 - [Ressources de la formation](https://www.alexandria-library.co/ressources-angular/)
