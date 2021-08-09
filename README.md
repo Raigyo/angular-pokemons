@@ -18,6 +18,8 @@ Angular nous offre la possibilité d'agir sur ces moments clefs quand ils se pr
 
 Chaque interface permettant d'interagir sur le cycle de vie d'un composant fournit une et une seule méthode, dont le nom est le nom de l'interface préfixé par ng. Par exemple, l'interface OnInit fournit la méthode ngOnInit, et permet de définir un comportement lorsque le composant est initialisé.
 
+![Life cycle schema](_readme-img/life-cycle.png)
+
 **In short** (\_fr)
 
 - Un composant fonctionne en associant la logique d'une classe TypeScript avec un template HTML.
@@ -241,7 +243,29 @@ A **provider** is an instruction to the Dependency Injection system on how to ob
 - On définit un fournisseur de service pour déterminer dans quelles zones de notre application notre service sera disponible.
 - On peut fournir un service pour toute l'application, pour un module particulier ou pour un composant.
 
+### Forms
+
+Angular provides two different approaches to handling user input through forms: **reactive** and **template-driven**. Both capture user input events from the view, validate the user input, create a form model and data model to update, and provide a way to track changes.
+
+Below are some of the high-level differences between the two types:
+
+- Template-driven forms make use of the "FormsModule", while reactive forms are based on "ReactiveFormsModule".
+- Template-driven forms are asynchronous in nature, whereas Reactive forms are mostly synchronous.
+- In a template-driven approach, most of the logic is driven from the template, whereas in reactive-driven approach, the logic resides mainly - in the component or typescript code. Let us get started by generating a component and then we'll update our form code.
+- Template-driven forms use two-way data binding to update the data model in the component as changes are made in the template and vice versa (using two-way data binding syntax `[(ngModel)]="..."` - property binding [] / event binding () . There is no two way binding in Reactive forms. Angular provides the methods to update the values from the component class. Reactive forms are used on complex cases, like dynamic forms element, dynamic validations etc.
+
+**In short** (\_fr)
+
+- Il y a deux modules différents pour développer des formulaires avec Angular: FormsModule et ReactiveFormsModule.
+- Le module FormsModule est pratique pour développer des formulaires de petites tailles, et met à disposition les directives NgForm et - NgModel.
+- La directive NgModel ajoute et retire certaines classes au champ sur lequel elle s'applique. Ces classes peuvent être utilisées pour - afficher des messages d'erreurs ou de succès, et des indicateurs visuels.
+- La syntaxe à retenir pour utiliser NgModel est [()].
+- On peut utiliser les attributs HMTL5 pour gérer la validation côté client, comme required ou pattern.
+- On peut utiliser des validateurs personnalisés en développant ses propres méthodes de validation.
+- Il faut toujours effectuer une validation côté serveur en complément de la validation côté client, si vous avez prévu de stocker des données depuis votre application.
+
 ## Ressources
 
 - [Ressources de la formation](https://www.alexandria-library.co/ressources-angular/)
 - [Built-in directives](https://angular.io/guide/built-in-directives)
+- [HTML <input> pattern Attribute](https://www.w3schools.com/tags/att_input_pattern.asp)
