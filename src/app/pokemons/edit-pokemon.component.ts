@@ -10,7 +10,7 @@ import { PokemonsService } from "./pokemons.service";
     <p class="center">
       <img *ngIf="pokemon" [src]="pokemon.picture" />
     </p>
-    <pokemon-form [pokemon]="pokemon"></pokemon-form>
+    <app-pokemon-form [pokemon]="pokemon"></app-pokemon-form>
   `
 })
 export class EditPokemonComponent implements OnInit {
@@ -23,6 +23,8 @@ export class EditPokemonComponent implements OnInit {
 
   ngOnInit(): void {
     let id = +this.route.snapshot.params["id"];
-    this.pokemon = this.pokemonsService.getPokemon(id);
+    this.pokemonsService
+      .getPokemon(id)
+      .subscribe((pokemon) => (this.pokemon = pokemon));
   }
 }

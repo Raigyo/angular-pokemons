@@ -264,8 +264,27 @@ Below are some of the high-level differences between the two types:
 - On peut utiliser des validateurs personnalisés en développant ses propres méthodes de validation.
 - Il faut toujours effectuer une validation côté serveur en complément de la validation côté client, si vous avez prévu de stocker des données depuis votre application.
 
+### Reactive programming
+
+**In short** (\_fr)
+
+- Les promesses sont natives en JavaScript depuis l'arrivée de la norme ES6.
+- La programmation réactive implique de gérer des flux de données asynchrones.
+- Un flux est une séquence d'événements ordonnés dans le temps.
+- On peut appliquer différentes opérations sur les flux : regroupements, filtrages, troncatures, etc.
+- Un flux peut émettre trois types de réponses : la valeur associée à un événement, une erreur, ou un point de terminaison pour mettre - fin au flux.
+- La librairie RxJS est la librairie la plus populaire pour implémenter la programmation réactive en JavaScript.
+- Dans RxJS, les flux d'événements sont représentés par un objet appelé Observable.
+
+## Dependancies
+
+- [Angular in-memory-web-api](https://www.npmjs.com/package/angular-in-memory-web-api): An in-memory web api for Angular demos and tests that emulates CRUD operations over a RESTy API. It intercepts Angular Http and HttpClient requests that would otherwise go to the remote server and redirects them to an in-memory data store that you control.
+
+`npm i angular-in-memory-web-api`
+
 ## Ressources
 
 - [Ressources de la formation](https://www.alexandria-library.co/ressources-angular/)
 - [Built-in directives](https://angular.io/guide/built-in-directives)
 - [HTML <input> pattern Attribute](https://www.w3schools.com/tags/att_input_pattern.asp)
+- [RxJS Marbles](https://rxmarbles.com/)

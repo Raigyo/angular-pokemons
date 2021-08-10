@@ -4,7 +4,7 @@ import { PokemonsService } from "./pokemons.service";
 import { Pokemon } from "./pokemon";
 
 @Component({
-  selector: "pokemon-form",
+  selector: "app-pokemon-form",
   templateUrl: "./pokemon-form.component.html",
   styleUrls: ["./pokemon-form.component.css"]
 })
@@ -23,18 +23,20 @@ export class PokemonFormComponent implements OnInit {
 
   // Determines whether or not the type passed in parameters belongs to the pokemon being edited.
   hasType(type: string): boolean {
-    let index = this.pokemon.types.indexOf(type);
-    if (index > -1) return true;
+    const index = this.pokemon.types.indexOf(type);
+    if (index > -1) {
+      return true;
+    }
     return false;
   }
 
   // Method called when the user adds or removes a type from the pokemon being edited.
   selectType($event: any, type: string): void {
-    let checked = $event.target.checked;
+    const checked = $event.target.checked;
     if (checked) {
       this.pokemon.types.push(type);
     } else {
-      let index = this.pokemon.types.indexOf(type);
+      const index = this.pokemon.types.indexOf(type);
       if (index > -1) {
         this.pokemon.types.splice(index, 1);
       }
@@ -56,7 +58,15 @@ export class PokemonFormComponent implements OnInit {
   // The method called when the form is submitted.
   onSubmit(): void {
     console.log("Submit form !");
-    let link = ["/pokemon", this.pokemon.id];
+    // const link = ["/pokemon", this.pokemon.id];
+    // this.router.navigate(link);
+    this.pokemonsService
+      .updatePokemon(this.pokemon)
+      .subscribe(() => this.goBack());
+  }
+
+  goBack(): void {
+    const link = ["/pokemon", this.pokemon.id];
     this.router.navigate(link);
   }
 }

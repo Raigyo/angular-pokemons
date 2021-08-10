@@ -5,7 +5,8 @@ import { PokemonsService } from "./pokemons.service";
 
 @Component({
   selector: "app-detail-pokemon",
-  templateUrl: "./detail-pokemon.component.html"
+  templateUrl: "./detail-pokemon.component.html",
+  styleUrls: ["./detail-pokemon.component.css"]
   // providers: [PokemonsService]
 })
 export class DetailPokemonComponent implements OnInit {
@@ -22,7 +23,13 @@ export class DetailPokemonComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get("id");
     // snapshot is a synchronous operation
     // paramMap: A map that provides access to the required and optional parameters specific to a route.
-    this.pokemon = this.pokemonsService.getPokemon(id);
+    this.pokemonsService
+      .getPokemon(id)
+      .subscribe((pokemon) => (this.pokemon = pokemon));
+  }
+
+  goDelete(pokemon: Pokemon): void {
+    this.pokemonsService.deletePokemon(pokemon).subscribe((_) => this.goBack());
   }
 
   goBack(): void {
