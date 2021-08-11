@@ -9,26 +9,23 @@ import { AuthService } from "./auth.service";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  // constructor(private authService: AuthService, private router: Router) {}
-  canActivate() {
-    console.info("Guard called");
-    return true;
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
+    const url: string = state.url;
+    return this.checkLogin(url);
   }
-  // canActivate(
-  //   route: ActivatedRouteSnapshot,
-  //   state: RouterStateSnapshot
-  // ): boolean {
-  //   const url: string = state.url;
-  //   return this.checkLogin(url);
-  // }
 
-  // checkLogin(url: string): boolean {
-  //   if (this.authService.isLoggedIn) {
-  //     return true;
-  //   }
-  //   this.authService.redirectUrl = url;
-  //   this.router.navigate(["/login"]);
+  checkLogin(url: string): boolean {
+    if (this.authService.isLoggedIn) {
+      return true;
+    }
+    this.authService.redirectUrl = url;
+    this.router.navigate(["/login"]);
 
-  //   return false;
-  // }
+    return false;
+  }
 }

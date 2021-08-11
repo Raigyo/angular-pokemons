@@ -5,11 +5,11 @@ import { tap, delay } from "rxjs/operators";
 
 @Injectable()
 export class AuthService {
-  isLoggedIn: boolean = false; // L'utilisateur est-il connecté ?
-  redirectUrl: string; // où rediriger l'utilisateur après l'authentification ?
-  // Une méthode de connexion
+  isLoggedIn: boolean = false; // Is the user logged in?
+  redirectUrl: string; // where to redirect the user after authentication?
+  // A connection method
   login(name: string, password: string): Observable<boolean> {
-    // Faites votre appel à un service d'authentification...
+    // Make your call to an authentication service ...
     const isLoggedIn = name === "pikachu" && password === "pikachu";
 
     return of(true).pipe(
@@ -18,7 +18,7 @@ export class AuthService {
     );
   }
 
-  // Une méthode de déconnexion
+  // A method of disconnection
   logout(): void {
     this.isLoggedIn = false;
   }

@@ -289,6 +289,12 @@ Below are some of the high-level differences between the two types:
 
 **In short** (\_fr)
 
+- L'authentification nécessite la mise en place d'un système fiable: on utilise pour cela les Guards.
+- Les Guards permettent de gérer toutes sortes de scénarios liés à la navigation: redirection, connexion, etc.
+- Les Guards reposent sur un mécanisme simple. Ils retournent un booléen de manière synchrone ou asynchrone, qui permet d'influencer le - processus de navigation.
+- Il existe plusieurs types de Guards différents. Le type utilisé pour l'authentification est CanActivate.
+- Il faut toujours déclarer les Guards au niveau du module racine, ainsi que les services tiers qu'ils utilisent.
+
 ## Dependancies
 
 - [Angular in-memory-web-api](https://www.npmjs.com/package/angular-in-memory-web-api): An in-memory web api for Angular demos and tests that emulates CRUD operations over a RESTy API. It intercepts Angular Http and HttpClient requests that would otherwise go to the remote server and redirects them to an in-memory data store that you control.
