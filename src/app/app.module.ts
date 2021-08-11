@@ -4,6 +4,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./in-memory-data.service";
 
+import { AuthGuard } from "./auth/auth-guard.service";
+
 import { AppRoutingModule } from "./app-routing.module";
 import { PokemonsModule } from "./pokemons/pokemons.module";
 
@@ -20,6 +22,7 @@ import { PageNotFoundComponent } from "./page-not-found.component";
     PokemonsModule,
     AppRoutingModule
   ], // order has importance
+  providers: [AuthGuard],
   declarations: [AppComponent, PageNotFoundComponent],
   bootstrap: [AppComponent]
 })

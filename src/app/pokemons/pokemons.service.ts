@@ -99,10 +99,11 @@ export class PokemonsService {
   searchPokemons(term: string): Observable<Pokemon[]> {
     if (!term.trim()) {
       // if empty
-      return of([]);
+      return of([]); // Observable.of()
+      /* Emit variable amount of values in a sequence and then emits a complete notification */
     }
 
-    return this.http.get<Pokemon[]>(`$(this.pokemonUrl)/?name=${term}`).pipe(
+    return this.http.get<Pokemon[]>(`${this.pokemonsUrl}/?name=${term}`).pipe(
       tap((_) => this.log(`found pokemon matching "${term}"`)),
       catchError(this.handleError<Pokemon[]>("searchPokemon", []))
     );

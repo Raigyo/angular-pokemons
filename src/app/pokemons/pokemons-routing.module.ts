@@ -5,11 +5,23 @@ import { ListPokemonComponent } from "./list-pokemon.component";
 import { DetailPokemonComponent } from "./detail-pokemon.component";
 import { EditPokemonComponent } from "./edit-pokemon.component";
 
-// les routes du module Pokémon
+import { AuthGuard } from "../auth/auth-guard.service";
+
+// the routes of the Pokémon module
 const pokemonsRoutes: Routes = [
-  { path: "pokemons", component: ListPokemonComponent },
-  { path: "pokemon/edit/:id", component: EditPokemonComponent },
-  { path: "pokemon/:id", component: DetailPokemonComponent }
+  {
+    path: "pokemons",
+    canActivate: [AuthGuard],
+    children: [
+      { path: "all", component: ListPokemonComponent },
+      {
+        path: "edit/:id",
+        component: EditPokemonComponent,
+        canActivate: [AuthGuard]
+      },
+      { path: ":id", component: DetailPokemonComponent }
+    ]
+  }
 ];
 
 @NgModule({

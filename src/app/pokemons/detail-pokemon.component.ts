@@ -28,16 +28,18 @@ export class DetailPokemonComponent implements OnInit {
       .subscribe((pokemon) => (this.pokemon = pokemon));
   }
 
-  goDelete(pokemon: Pokemon): void {
-    this.pokemonsService.deletePokemon(pokemon).subscribe((_) => this.goBack());
-  }
+  // Events
 
   goBack(): void {
-    this.router.navigate(["/pokemons"]);
+    this.router.navigate(["/pokemons/all"]);
   }
 
   goEdit(pokemon: Pokemon): void {
-    const link = ["/pokemon/edit", pokemon.id];
+    const link = ["/pokemons/edit", pokemon.id];
     this.router.navigate(link);
+  }
+
+  goDelete(pokemon: Pokemon): void {
+    this.pokemonsService.deletePokemon(pokemon).subscribe((_) => this.goBack());
   }
 }
