@@ -1,10 +1,16 @@
-# Angular - Pokemons
+# Angular - Pokémons management
 
-_July 2021_
+_July / August 2021_
 
-> 🔨 From Udemy '[Angular 9 : Développer votre première application (2021) - Simon DIENY](https://www.udemy.com/course/angular-developper-tutoriel-application-typescript/)'.
+> 🔨 Angular application of Pokémons from an empty folder, with Angular and TypeScript. From Udemy '[Angular 9 : Développer votre première application (2021) - Simon DIENY](https://www.udemy.com/course/angular-developper-tutoriel-application-typescript/)'.
 
 ![Angular logo](_readme-img/angular-logo.png)
+
+Demo on [Netlify](https://kind-beaver-4ac55d.netlify.app/).
+
+![capture](_readme-img/capture-01.png)
+
+![capture](_readme-img/capture-02.png)
 
 ## Notes
 

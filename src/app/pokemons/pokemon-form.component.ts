@@ -66,7 +66,9 @@ export class PokemonFormComponent implements OnInit {
   }
 
   goBack(): void {
-    const link = ["/pokemon", this.pokemon.id];
+    const link = ["/pokemons", this.pokemon.id];
+    console.log("url:", link);
+
     this.router.navigate(link);
   }
 }
