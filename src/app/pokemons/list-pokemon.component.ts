@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Pokemon } from "./pokemon";
 import { Router } from "@angular/router";
+import { Title } from "@angular/platform-browser";
+import { Pokemon } from "./pokemon";
 import { PokemonsService } from "./pokemons.service";
 
 @Component({
@@ -13,12 +14,14 @@ export class ListPokemonComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private pokemonsService: PokemonsService
+    private pokemonsService: PokemonsService,
+    private titleService: Title
   ) {
     // service injection
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Pokémons list");
     this.getPokemons();
   }
 

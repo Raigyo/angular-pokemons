@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { Pokemon } from "./pokemon";
 import { PokemonsService } from "./pokemons.service";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-detail-pokemon",
@@ -15,10 +16,12 @@ export class DetailPokemonComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private pokemonsService: PokemonsService
+    private pokemonsService: PokemonsService,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {
+    this.titleService.setTitle("Pokémon detail");
     // @ts-ignore: Object is possibly 'null'.
     const id = +this.route.snapshot.paramMap.get("id");
     // snapshot is a synchronous operation

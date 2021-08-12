@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { BrowserModule, Title } from "@angular/platform-browser";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 
@@ -28,6 +28,7 @@ import { InMemoryDataService } from "./in-memory-data.service";
     AppRoutingModule
   ], // order has importance
   declarations: [AppComponent, LoginComponent, PageNotFoundComponent],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
